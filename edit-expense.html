@@ -18,7 +18,7 @@
       crossorigin="anonymous"
     />
     <!-- CUSTOM JS -->
-    <script type="text/javascript" src="./js/register.js" defer></script>
+    <script type="text/javascript" src="./js/edit-expense.js" defer></script>
     <!-- BOOTSTRAP JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
@@ -29,13 +29,13 @@
     src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
     type="module"
     ></script>
-    <title>My Balance | Registro</title>
+    <title>My Balance | Editar registro</title>
   </head>
   <body>
     <!-- BARRA DE NAVEGACION -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">My Balance</a>
+        <a class="navbar-brand" href="/homepage.html">My Balance</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -50,13 +50,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="/">Inicio</a>
+              <a class="nav-link active" href="/homepage.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/login.html">Iniciar sesión</a>
+              <a class="nav-link active" href="/create-expense.html">Crear registro</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Usuario
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/edit-user.html">Editar usuario</a></li>
+                <li><a class="dropdown-item" href="#">Históricos</a></li>
+              </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/register.html">Registrarme</a>
+              <a class="nav-link active" href="#" id="logoutBtn">Cerrar sesión</a>
             </li>
           </ul>
         </div>
@@ -64,26 +73,20 @@
     </nav>
 
     <div class="d-flex flex-column justify-content-evenly align-items-center my-4" style="width: 100%; height: 80vh;">
-        <form class="mt-5" id="registerForm">
+        <form id="editForm">
           <div class="formAlert alert" style="display: none;">Cargando...</div>
-          <h2 class="fs-1 text-center mb-2">Registrate</h2>
+          <h2 class="fs-2 text-center mb-2">Editar gasto</h2>
+          <div class="descriptionTitle"></div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="firstnameInput" placeholder="Nombre">
-            <label for="firstnameInput">Nombre</label>
+            <input type="text" class="form-control" id="expensiveInput" placeholder="Descripción (opcional)" maxlength="20">
+            <label for="expensiveInput">Descripción (opcional)</label>
           </div>
+          <div class="amountTitle"></div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="lastnameInput" placeholder="Apellido">
-            <label for="lastnameInput">Apellido</label>
+            <input type="number" class="form-control" id="amountInput" placeholder="Monto (opcional)">
+            <label for="amountInput">Monto (opcional)</label>
           </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="usernameInput" placeholder="Usuario">
-            <label for="usernameInput">Usuario</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="passwordInput" placeholder="Contraseña">
-            <label for="passwordInput">Contraseña</label>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg">Registrarme</button>
+          <button type="submit" class="btn btn-primary btn-lg">Editar</button>
         </form>
     </div>
   </body>
