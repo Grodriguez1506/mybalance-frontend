@@ -217,8 +217,6 @@ if (token) {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
-      } else {
-        document.location.href = "/login.html";
       }
     }
 
