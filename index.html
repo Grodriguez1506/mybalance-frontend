@@ -74,24 +74,4 @@
         ></dotlottie-player>
     </div>
   </body>
-  <script>
-    // API URL en desarrollo
-    // const API_URL = "http://127.0.0.1:3000/api";
-
-    // API URL en producción
-    const API_URL = "https://mybalance-backend.onrender.com/api";
-
-    window.addEventListener("DOMContentLoaded", async () =>{
-      const response = await fetch(`${API_URL}/user/logged`, {
-        method: "GET",
-        credentials: "include",
-      });
-
-      const data = await response.json();
-
-      if (data.loggedIn) {
-        window.location.href = "/homepage.html";
-      }
-    })
-  </script>
 </html>
