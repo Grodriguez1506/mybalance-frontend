@@ -11,7 +11,7 @@ const formAlert = document.querySelector(".formAlert");
 // API URL en producción
 const API_URL = "https://mybalance-backend.onrender.com/api";
 
-window.addEventListener("DOMContentLoaded", async () => {
+const loggedUser = async () => {
   const response = await fetch(`${API_URL}/user/logged`, {
     method: "GET",
     credentials: "include",
@@ -22,7 +22,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   if (data.loggedIn) {
     window.location.href = "/homepage.html";
   }
-});
+};
+
+loggedUser();
 
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
