@@ -386,11 +386,18 @@ if (token) {
 
 const logout = async () => {
   try {
-    await fetch(`${API_URL}/user/logout`);
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("expense");
+    const response = await fetch(`${API_URL}/user/logout`);
 
-    document.location.href = "/index.html";
+    const data = await response.json();
+
+    console.log(data);
+
+    // if (data.status == "success") {
+    //   localStorage.removeItem("access_token");
+    //   localStorage.removeItem("expense");
+
+    //   document.location.href = "/index.html";
+    // }
   } catch (error) {
     console.log(error);
   }
