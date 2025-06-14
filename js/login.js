@@ -20,8 +20,7 @@ const loggedUser = async () => {
   const data = await response.json();
 
   if (data.loggedIn) {
-    console.log(data.loggedIn);
-    // window.location.href = "/homepage.html";
+    window.location.href = "/homepage.html";
   }
 };
 

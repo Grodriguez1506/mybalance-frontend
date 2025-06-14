@@ -386,21 +386,15 @@ if (token) {
 
 const logout = async () => {
   try {
-    const response = await fetch(`${API_URL}/user/logout`, {
+    await fetch(`${API_URL}/user/logout`, {
       method: "POST",
       credentials: "include",
     });
 
-    const data = await response.json();
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("expense");
 
-    console.log(data);
-
-    // if (data.status == "success") {
-    //   localStorage.removeItem("access_token");
-    //   localStorage.removeItem("expense");
-
-    //   document.location.href = "/index.html";
-    // }
+    document.location.href = "/index.html";
   } catch (error) {
     console.log(error);
   }
