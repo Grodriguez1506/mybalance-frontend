@@ -7,7 +7,11 @@ const usernameInput = document.querySelector("#usernameInput");
 const passwordInput = document.querySelector("#passwordInput");
 const formAlert = document.querySelector(".formAlert");
 
-const API_URL = "http://localhost:3000/api";
+// API URL en desarrollo
+// const API_URL = "http://127.0.0.1:3000/api";
+
+// API URL en producción
+const API_URL = "https://mybalance-backend.onrender.com/api";
 
 registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();

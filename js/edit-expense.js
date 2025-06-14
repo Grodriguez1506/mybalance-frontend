@@ -8,7 +8,11 @@ const amountInput = document.querySelector("#amountInput");
 const amountTitle = document.querySelector(".amountTitle");
 const logoutBtn = document.querySelector("#logoutBtn");
 
-const API_URL = "http://127.0.0.1:3000/api";
+// API URL en desarrollo
+// const API_URL = "http://127.0.0.1:3000/api";
+
+// API URL en producción
+const API_URL = "https://mybalance-backend.onrender.com/api";
 
 var token = localStorage.getItem("access_token");
 
