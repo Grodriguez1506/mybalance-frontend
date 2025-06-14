@@ -388,6 +388,7 @@ const logout = async () => {
   try {
     const response = await fetch(`${API_URL}/user/logout`, {
       method: "POST",
+      credentials: "include",
     });
 
     const data = await response.json();
