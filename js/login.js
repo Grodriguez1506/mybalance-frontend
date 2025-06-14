@@ -14,7 +14,7 @@ const API_URL = "https://mybalance-backend.onrender.com/api";
 const loggedUser = async () => {
   const response = await fetch(`${API_URL}/user/logged`, {
     method: "GET",
-    headers: { "Content-type": "application/json" },
+    credentials: "include",
   });
 
   const data = await response.json();
