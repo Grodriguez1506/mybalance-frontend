@@ -83,7 +83,11 @@ if (token) {
 
 const logout = async () => {
   try {
-    await fetch(`${API_URL}/user/logout`);
+    await fetch(`${API_URL}/user/logout`, {
+      method: "POST",
+      credentials: "include",
+    });
+
     localStorage.removeItem("access_token");
     localStorage.removeItem("expense");
 
