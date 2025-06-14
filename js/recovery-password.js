@@ -1,31 +1,26 @@
 "use strict";
 
-const registerForm = document.querySelector("#registerForm");
-const firstnameInput = document.querySelector("#firstnameInput");
-const lastnameInput = document.querySelector("#lastnameInput");
+const recoveryForm = document.querySelector("#recoveryForm");
 const usernameInput = document.querySelector("#usernameInput");
 const passwordInput = document.querySelector("#passwordInput");
 const formAlert = document.querySelector(".formAlert");
 
 const API_URL = "http://localhost:3000/api";
 
-registerForm.addEventListener("submit", async (e) => {
+recoveryForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   formAlert.classList.add("alert-success");
   formAlert.style.display = "block";
 
-  const firstname = firstnameInput.value;
-  const lastname = lastnameInput.value;
   const username = usernameInput.value;
-  const password = passwordInput.value;
+  const pwd = passwordInput.value;
 
   try {
-    const response = await fetch(`${API_URL}/user/register`, {
-      method: "POST",
-      credentials: "include",
+    const response = await fetch(`${API_URL}/user/recovery-password`, {
+      method: "PUT",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ firstname, lastname, username, password }),
+      body: JSON.stringify({ username, pwd }),
     });
 
     const data = await response.json();
@@ -35,14 +30,11 @@ registerForm.addEventListener("submit", async (e) => {
       return (formAlert.innerHTML = data.message);
     }
 
-    firstnameInput.value = "";
-    lastnameInput.value = "";
+    formAlert.classList.replace("alert-danger", "alert-success");
+    formAlert.innerHTML = data.message;
+
     usernameInput.value = "";
     passwordInput.value = "";
-
-    formAlert.classList.remove("alert-danger");
-    formAlert.classList.add("alert-success");
-    formAlert.innerHTML = data.message;
   } catch (error) {
     console.log(error);
   }

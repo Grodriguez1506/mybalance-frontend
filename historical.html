@@ -18,7 +18,7 @@
       crossorigin="anonymous"
     />
     <!-- CUSTOM JS -->
-    <script type="text/javascript" src="./js/login.js" defer></script>
+    <script type="text/javascript" src="./js/historical.js" defer></script>
     <!-- BOOTSTRAP JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
@@ -29,13 +29,13 @@
     src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
     type="module"
     ></script>
-    <title>My Balance | Iniciar sesión</title>
+    <title>My Balance | Históricos</title>
   </head>
   <body>
     <!-- BARRA DE NAVEGACION -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">My Balance</a>
+        <a class="navbar-brand" href="/homepage.html">My Balance</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -50,34 +50,31 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="/">Inicio</a>
+              <a class="nav-link active" href="/homepage.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/login.html">Iniciar sesión</a>
+              <a class="nav-link active" href="/create-expense.html">Crear registro</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Usuario
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/edit-user.html">Editar usuario</a></li>
+                <li><a class="dropdown-item" href="/historical.html">Historial</a></li>
+              </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/register.html">Registrarme</a>
+              <a class="nav-link active" href="#" id="logoutBtn">Cerrar sesión</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="d-flex flex-column justify-content-evenly align-items-center my-4" style="width: 100%; height: 80vh;">
-        <form id="loginForm">
-          <div class="formAlert alert" style="display: none;">Cargando...</div>
-          <h2 class="fs-1 text-center mb-2">Inicia sesión</h2>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="usernameInput" placeholder="Usuario">
-            <label for="usernameInput">Usuario</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="passwordInput" placeholder="Contraseña">
-            <label for="passwordInput">Contraseña</label>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg">Iniciar sesión</button>
-          <a href="/recovery-password.html" class="forgotPassword text-center">¿Olvidaste tu contraseña?</a>
-        </form>
+    <div id="mainCointainer" class="container d-flex flex-column justify-content-start my-4" style="width: 100%; height: 80vh;">
+      <h1 id="mainTitle" class="fs-1 text-center fw-bold mb-4">Historial de gastos</h1>
+      
     </div>
   </body>
 </html>

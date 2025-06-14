@@ -31,8 +31,6 @@ loginForm.addEventListener("submit", async (e) => {
       return (formAlert.innerHTML = data.message);
     }
 
-    console.log(data);
-
     localStorage.setItem("access_token", data.token);
 
     document.location.href = "/homepage.html";

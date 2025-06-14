@@ -53,8 +53,6 @@ if (token) {
 
     const data = await response.json();
 
-    console.log(data);
-
     mainTitle.innerHTML = `Bienvenido/a ${data.userFound.firstname} ${data.userFound.lastname}`;
 
     const formattedSalary = data.userFound.salary.toLocaleString("es-ES", {
@@ -149,28 +147,8 @@ if (token) {
       const data = await response.json();
 
       if (data.status == "success") {
-        container.style.backgroundColor = "#2ee82e";
+        document.location.href = "/homepage.html";
       }
-
-      btn.classList.replace("btn-success", "btn-danger");
-      btn.innerHTML = "Desmarcar";
-
-      const amountToPaid = await unpaidList();
-
-      const amountPaid = await paidList();
-
-      const formattedToPaid = amountToPaid.toLocaleString("es-ES", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      });
-
-      const formattedPaid = amountPaid.toLocaleString("es-ES", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      });
-
-      toBePaid.innerHTML = `Por pagar ${formattedToPaid}`;
-      paid.innerHTML = `Pagado ${formattedPaid}`;
     } catch (error) {
       console.log(error);
     }
@@ -195,28 +173,8 @@ if (token) {
     const data = await response.json();
 
     if (data.status == "success") {
-      container.style.backgroundColor = "#ffffff";
+      document.location.href = "/homepage.html";
     }
-
-    btn.classList.replace("btn-danger", "btn-success");
-    btn.innerHTML = "Pagar";
-
-    const amountToPaid = await unpaidList();
-
-    const amountPaid = await paidList();
-
-    const formattedToPaid = amountToPaid.toLocaleString("es-ES", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-
-    const formattedPaid = amountPaid.toLocaleString("es-ES", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-
-    toBePaid.innerHTML = `Por pagar ${formattedToPaid}`;
-    paid.innerHTML = `Pagado ${formattedPaid}`;
   };
 
   const deleteExpense = async (id) => {
@@ -255,30 +213,38 @@ if (token) {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
+      } else {
+        document.location.href = "/login.html";
       }
     }
 
     const data = await response.json();
 
-    const formattedToPaid = data.toBePaid.toLocaleString("es-ES", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+    historicalForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      formAlert.style.display = "block";
+      formAlert.classList.add("alert-danger");
+      formAlert.innerHTML = data.message;
     });
-
-    const formattedPaid = data.paid.toLocaleString("es-ES", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-
-    toBePaid.innerHTML = `Por pagar ${formattedToPaid}`;
-    paid.innerHTML = `Pagado ${formattedPaid}`;
-
-    console.log(data);
 
     if (data.expensesList) {
       const expenses = data.expensesList;
       const currency = data.user.currency;
       const salary = data.user.salary;
+
+      const formattedToPaid = data.toBePaid.toLocaleString("es-ES", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+
+      const formattedPaid = data.paid.toLocaleString("es-ES", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+
+      toBePaid.innerHTML = `Por pagar ${formattedToPaid}`;
+      paid.innerHTML = `Pagado ${formattedPaid}`;
 
       historicalForm.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -313,6 +279,7 @@ if (token) {
           const data = await response.json();
 
           if (data.status == "success") {
+            formAlert.style.display = "none";
             document.location.href = "/homepage.html";
           } else {
             formAlert.style.display = "block";

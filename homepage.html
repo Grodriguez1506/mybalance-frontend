@@ -29,7 +29,7 @@
     src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
     type="module"
     ></script>
-    <title>My Balance | Homepage</title>
+    <title>My Balance | Inicio</title>
   </head>
   <body>
     <!-- BARRA DE NAVEGACION -->
@@ -61,7 +61,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/edit-user.html">Editar usuario</a></li>
-                <li><a class="dropdown-item" href="#">Históricos</a></li>
+                <li><a class="dropdown-item" href="/historical.html">Historial</a></li>
               </ul>
             </li>
             <li class="nav-item">
@@ -72,19 +72,33 @@
       </div>
     </nav>
 
-    <div class="d-flex flex-column justify-content-evenly align-items-center my-4" style="width: 100%; height: 80vh;">
+    <div class="d-flex flex-column justify-content-evenly align-items-center my-5" style="width: 100%; min-height: 80vh;">
         <h1 id="mainTitle" class="fs-1 text-center fw-bold"></h1>
         <h2 id="salaryTitle" class="fs-1 text-center"></h2>
         <div class="expensesList container my-4">
         </div>
-        <h4 id="toBePaid" class="text-center"></h4>
-        <h4 id="paid" class="text-center"></h4>
-        <h2 id="total" class="fs-1 text-center"></h2>
+        <h4 id="toBePaid" class="text-center my-2"></h4>
+        <h4 id="paid" class="text-center my-2"></h4>
+        <h2 id="total" class="fs-1 text-center my-2"></h2>
         <div class="formAlert alert" style="display: none; width: 70%;"></div>
-        <form id="historicalForm" class="d-flex flex-row" >
-          <div class="form-floating mx-3">
-            <input type="text" class="form-control" id="monthInput" placeholder="Mes">
-            <label for="amountInput">Mes</label>
+        <form id="historicalForm" class="d-flex flex-row my-4" >
+          <div class="form-floating">
+            <select class="form-select" id="monthInput" aria-label="Floating label select example">
+              <option selected>Seleccion el mes</option>
+              <option value="ENERO">Enero</option>
+              <option value="FEBRERO">Febrero</option>
+              <option value="MARZO">Marzo</option>
+              <option value="ABRIL">Abril</option>
+              <option value="MAYO">Mayo</option>
+              <option value="JUNIO">Junio</option>
+              <option value="JULIO">Julio</option>
+              <option value="AGOSTO">Agosto</option>
+              <option value="SEPTIEMBRE">Septiembre</option>
+              <option value="OCTUBRE">Octubre</option>
+              <option value="NOVIEMBRE">Noviembre</option>
+              <option value="DICIEMBRE">Diciembre</option>
+            </select>
+            <label for="monthInput">Mes</label>
           </div>
           <div class="form-floating mx-3">
             <input type="number" class="form-control" id="yearInput" placeholder="Año">
