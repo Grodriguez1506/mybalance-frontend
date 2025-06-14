@@ -386,7 +386,9 @@ if (token) {
 
 const logout = async () => {
   try {
-    const response = await fetch(`${API_URL}/user/logout`);
+    const response = await fetch(`${API_URL}/user/logout`, {
+      method: "POST",
+    });
 
     const data = await response.json();
 
