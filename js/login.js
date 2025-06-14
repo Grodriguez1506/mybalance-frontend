@@ -19,10 +19,12 @@ const loggedUser = async () => {
 
   const data = await response.json();
 
-  if (!data.loggedIn) {
-  } else {
-    window.location.href = "/homepage.html";
-  }
+  console.log(data);
+
+  // if (!data.loggedIn) {
+  // } else {
+  //   window.location.href = "/homepage.html";
+  // }
 };
 
 loggedUser();
